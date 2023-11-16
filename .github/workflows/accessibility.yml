@@ -33,6 +33,7 @@ jobs:
         run: |
           django-admin startproject allyapp
           python allyapp/manage.py migrate
-      - run: python allyapp/manage.py runserver &
+      - run: python allyapp/manage.py runserver 0:8000 &
       - run: npm install -g pa11y-ci
+      - run: curl http://127.0.0.1:8000/
       - run: pa11y-ci --threshold 1
