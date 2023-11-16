@@ -1,10 +1,9 @@
 name: Accessibility
 
 on:
-  pull_request:
-    branches:
-      - "poc-ci-accessibility"
-      - main
+  push:
+    branches-ignore:
+      - "gh-pages"
 
 jobs:
   accessibility:
