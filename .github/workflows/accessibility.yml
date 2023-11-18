@@ -23,5 +23,4 @@ jobs:
       - run: http-server ./pages --port 4000 &
       - run: npm install -g pa11y-ci
       - run: pa11y-ci --config pa11y.static.config.js
-      - run: cat pa11y.json
       - run: pa11y-ci --threshold 1
