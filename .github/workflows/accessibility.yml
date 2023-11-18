@@ -1,38 +1,20 @@
 name: Accessibility
-
 on:
   push:
-    branches-ignore:
-      - "gh-pages"
-
 jobs:
   accessibility:
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_BD: postgres
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       - run: pip install Django
-      - name: Create dummy app
-        run: |
-          django-admin startproject allyapp
-          python allyapp/manage.py migrate
+      - run: django-admin startproject allyapp
+      - run: python allyapp/manage.py migrate
       - run: python allyapp/manage.py runserver 0:8000 &
       - run: npm install -g pa11y-ci
       - run: curl http://127.0.0.1:8000/
