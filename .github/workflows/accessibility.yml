@@ -18,8 +18,8 @@ jobs:
       - run: python allyapp/manage.py runserver 0:8000 &
       - run: curl http://127.0.0.1:8000/
       - run: npm install -g http-server@14
-      - run: wget --no-host-directories -P ./pages --mirror --load-cookies http://127.0.0.1:8000/
-      - run: wget --no-host-directories -P ./pages --mirror --load-cookies http://127.0.0.1:8000/admin/
+      - run: wget --no-host-directories -P ./pages --mirror http://127.0.0.1:8000/
+      - run: wget --no-host-directories -P ./pages --mirror http://127.0.0.1:8000/admin/
       - run: http-server ./pages --port 4000 &
       - run: npm install -g pa11y-ci
       - run: pa11y-ci -j --config pa11y.static.config.js > pa11y.json
