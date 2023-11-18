@@ -22,6 +22,6 @@ jobs:
       - run: wget --no-host-directories -P ./pages --mirror http://127.0.0.1:8000/admin/
       - run: http-server ./pages --port 4000 &
       - run: npm install -g pa11y-ci
-      - run: pa11y-ci -j --config pa11y.static.config.js > pa11y.json
+      - run: pa11y-ci --config pa11y.static.config.js
       - run: cat pa11y.json
       - run: pa11y-ci --threshold 1
