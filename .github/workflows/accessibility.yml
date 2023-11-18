@@ -24,3 +24,4 @@ jobs:
       - run: npm install -g pa11y-ci
       - run: pa11y-ci --config pa11y.static.config.js
       - run: pa11y-ci --threshold 1
+      - run: node test.js
