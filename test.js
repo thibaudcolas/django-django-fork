@@ -5,11 +5,11 @@ const puppeteer = require("puppeteer");
 let views = [
   {
     label: "Home",
-    path: "http://localhost:8000/",
+    path: "http://127.0.0.1:4000/",
   },
   {
     label: "Admin",
-    path: "http://localhost:8000/admin/",
+    path: "http://127.0.0.1:4000/admin/",
   },
 ];
 
