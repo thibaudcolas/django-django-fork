@@ -11,7 +11,7 @@ jobs:
           python-version: "3.10"
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "16"
       - run: pip install Django
       - run: django-admin startproject allyapp
       - run: python allyapp/manage.py migrate
