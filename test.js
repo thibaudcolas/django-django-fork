@@ -27,6 +27,7 @@ const run = async () => {
       const fullLabel = scenario.label;
 
       const pa11yOptions = {
+        concurrency: 1,
         standard: "WCAG2AA",
         log: {
           debug: console.log,
